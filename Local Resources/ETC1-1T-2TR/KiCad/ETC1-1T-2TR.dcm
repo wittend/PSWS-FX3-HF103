@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ETC1-1T-2TR
+D Audio Transformers / Signal Transformers .1-200MHz IL 1.5dB Impedance Ratio 1:1
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/85d3f36e6ccd244b2f23e0daa3d02a86.pdf
+$ENDCMP
+#
+#End Doc Library

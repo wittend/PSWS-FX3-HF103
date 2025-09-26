@@ -1,0 +1,10 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "LTC2208CUP_PBF")(type "KiCad")(uri "${KIPRJMOD}/Local Resources/LTC2208/LTC2208CUP_PBF.kicad_sym")(options "")(descr ""))
+  (lib (name "TC4-1T")(type "KiCad")(uri "${KIPRJMOD}/Local Resources/TC4-1T/TC4-1T.kicad_sym")(options "")(descr ""))
+  (lib (name "TC4-1W")(type "KiCad")(uri "${KIPRJMOD}/Local Resources/TC4-1W/2025-05-09_19-14-07.kicad_sym")(options "")(descr ""))
+  (lib (name "AD8370")(type "KiCad")(uri "${KIPRJMOD}/Local Resources/AD8370/2025-05-08_21-15-30.kicad_sym")(options "")(descr ""))
+  (lib (name "GBLC03C")(type "KiCad")(uri "${KIPRJMOD}/Local Resources/GBLC03C/GBLC03C.kicad_sym")(options "")(descr ""))
+  (lib (name "Si5351")(type "KiCad")(uri "${KIPRJMOD}/Local Resources/Si5351/SI5351A-B-GT.kicad_sym")(options "")(descr ""))
+  (lib (name "CYUSB3014-BZXCT")(type "KiCad")(uri "${KIPRJMOD}/Local Resources/CYUSB3014-BZXCT/CYUSB3014-BZXCT.kicad_sym")(options "")(descr ""))
+)

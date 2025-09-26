@@ -1,0 +1,16 @@
+.ETC1-1T-2TR :1 ;Audio Transformers / Signal Transformers .1-200MHz IL 1.5dB Impedance Ratio 1:1
+E_SERIES_1
+*STM T
+*NGS
+*PLB 1="SECONDARY" 2="SECONDARY CT" 3="SECONDARY DOT" 4="PRIMARY DOT" 5="PRIMARY"
+*MXP 5
+*DFN ETC1-1T-2TR
+~!Mouser Part Number (937-ETC1-1T-2)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/MACOM/ETC1-1T-2TR?qs=Z9twEOuL%252B%2FJJqd2fxpSi6w%3D%3D)
+~!Manufacturer_Name (MACOM)
+~!Manufacturer_Part_Number (ETC1-1T-2TR)
+~!Link Datasheet (https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/85d3f36e6ccd244b2f23e0daa3d02a86.pdf)
+~!Height (-)
+~!3D_Model (ETC1-1T-2TR)
+ETC1-1T-2TR
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 

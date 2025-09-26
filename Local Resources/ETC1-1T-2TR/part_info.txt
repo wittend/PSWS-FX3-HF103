@@ -1,0 +1,9 @@
+Manufacturer=MACOM
+PartNumber=ETC1-1T-2TR
+PartCategory=Transformer
+PackageCategory=Other
+PinCount=5
+Version=1.1
+Released=2017-08-03 11:33:25
+Downloaded=2023-07-07 19:44:04
+3D=Y

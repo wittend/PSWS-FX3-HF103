@@ -1,0 +1,301 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "762aef0a-d6ed-4651-8b7c-2ddb5c2c230b")
+	(paper "A")
+	(title_block
+		(title "PSWS-HF103-proto")
+		(date "2025-06-23")
+		(rev "0.1.0")
+		(company "Dave Witten, KD0EAG")
+		(comment 2 "[ A Minimalist Rework of HF-103 designed by Oskar Stella, ik1xpv ]")
+		(comment 3 "Infineon/Cypress  FX3 DevKit and LTC2208 Demo modules")
+		(comment 4 "A development straw-man based on the")
+	)
+	(lib_symbols)
+	(text "PSWS FX3 HF103\nworking prototype"
+		(exclude_from_sim no)
+		(at 143.002 33.02 0)
+		(effects
+			(font
+				(size 7 7)
+				(thickness 1.6)
+				(bold yes)
+				(color 0 0 72 1)
+			)
+		)
+		(uuid "5b6df05e-9857-4351-8406-cec5da3813a5")
+	)
+	(sheet
+		(at 192.786 102.87)
+		(size 50.8 33.02)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "01482097-4e34-431f-952c-34d4f1408c9a")
+		(property "Sheetname" "Spare Parts"
+			(at 217.932 144.018 0)
+			(effects
+				(font
+					(size 5 5)
+					(bold yes)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Sheetfile" "PSWS-FX3-HF103-Filters.kicad_sch"
+			(at 200.406 118.364 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PSWS-FX3-HF103"
+				(path "/762aef0a-d6ed-4651-8b7c-2ddb5c2c230b"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 40.386 103.378)
+		(size 53.34 32.385)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "3ceec33c-ed40-46f3-8970-adc4727ef609")
+		(property "Sheetname" "GPIO"
+			(at 64.262 143.764 0)
+			(effects
+				(font
+					(size 5 5)
+					(bold yes)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Sheetfile" "PSWS-FX3-HF103-GPIO.kicad_sch"
+			(at 43.815 117.475 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PSWS-FX3-HF103"
+				(path "/762aef0a-d6ed-4651-8b7c-2ddb5c2c230b"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 40.386 156.21)
+		(size 51.562 33.02)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "3fe82bc5-fabd-444d-adb6-3aeaf81010b9")
+		(property "Sheetname" "Notes & comments"
+			(at 69.342 198.882 0)
+			(effects
+				(font
+					(size 5 5)
+					(bold yes)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Sheetfile" "PSWS-FX3-HF103-Notes.kicad_sch"
+			(at 46.99 175.006 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PSWS-FX3-HF103"
+				(path "/762aef0a-d6ed-4651-8b7c-2ddb5c2c230b"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 191.516 54.102)
+		(size 52.07 31.75)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "45a316d2-e363-4bbc-b8e3-187e82d87c40")
+		(property "Sheetname" "Timing"
+			(at 218.186 93.98 0)
+			(effects
+				(font
+					(size 5 5)
+					(thickness 1)
+					(bold yes)
+				)
+			)
+		)
+		(property "Sheetfile" "PSWS-FX3-HF103-Timing.kicad_sch"
+			(at 196.596 68.326 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PSWS-FX3-HF103"
+				(path "/762aef0a-d6ed-4651-8b7c-2ddb5c2c230b"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 39.116 53.848)
+		(size 53.975 32.385)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "46af3ed1-a429-4b49-8bed-1eb85b11428e")
+		(property "Sheetname" "FX3-USB"
+			(at 49.657 94.869 0)
+			(effects
+				(font
+					(size 5 5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PSWS-FX3-HF103-USB.kicad_sch"
+			(at 45.593 66.929 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PSWS-FX3-HF103"
+				(path "/762aef0a-d6ed-4651-8b7c-2ddb5c2c230b"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 117.602 53.594)
+		(size 50.165 32.385)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "93a69905-dc73-446d-812a-de5f5715e64a")
+		(property "Sheetname" "LTC-2208 ADC"
+			(at 114.427 94.615 0)
+			(effects
+				(font
+					(size 5 5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PSWS-FX3-HF103-ADC-Multi.kicad_sch"
+			(at 121.031 67.691 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PSWS-FX3-HF103"
+				(path "/762aef0a-d6ed-4651-8b7c-2ddb5c2c230b"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 117.602 103.124)
+		(size 50.8 32.385)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "d7acaed2-a28c-482a-a667-bcbdb462effb")
+		(property "Sheetname" "Power"
+			(at 132.334 145.034 0)
+			(effects
+				(font
+					(size 5 5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PSWS-FX3-HF103-Power.kicad_sch"
+			(at 122.936 119.634 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PSWS-FX3-HF103"
+				(path "/762aef0a-d6ed-4651-8b7c-2ddb5c2c230b"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

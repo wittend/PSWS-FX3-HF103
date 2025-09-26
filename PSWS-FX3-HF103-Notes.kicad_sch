@@ -1,0 +1,257 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "963e4224-a4bb-40f9-8b90-cd5df4691260")
+	(paper "A")
+	(title_block
+		(title "PSWS-HF103-proto")
+		(date "2025-06-23")
+		(rev "0.1.0")
+		(company "Dave Witten, KD0EAG")
+		(comment 2 "[ A Minimalist Rework of HF-103 designed by Oskar Stella, ik1xpv ]")
+		(comment 3 "Infineon/Cypress  FX3 DevKit and LTC2208 Demo modules")
+		(comment 4 "A development straw-man based on the")
+	)
+	(lib_symbols)
+	(rectangle
+		(start 13.843 159.893)
+		(end 155.448 202.438)
+		(stroke
+			(width 0.1)
+			(type default)
+			(color 6 6 6 0.79)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 15b97cf2-9fd6-48fe-875a-e4edc9e3b835)
+	)
+	(rectangle
+		(start 15.748 172.593)
+		(end 153.543 174.498)
+		(stroke
+			(width 0)
+			(type default)
+			(color 237 240 255 1)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 439cba05-5800-42cd-b744-e08471f09cdf)
+	)
+	(text_box "Comments - Clint [2025-06-23]\n\n1) Remove transformer from RF path to improve low-end performance ???\n\n2) LPF filter - 30 MHz / 60 MHz / Completely external ???"
+		(exclude_from_sim no)
+		(at 145.288 50.8 0)
+		(size 120.396 34.798)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "1f26eebd-b36d-49d8-86f3-d33f5de31949")
+	)
+	(text_box "Comments: Tom [Sat 28 Jun, 20:06]\n \nOne other note - \n\nThe Si5351 is not designed to have an external frequency reference input. The RX888 \"solved\" this by not using a crystal, but instead using a packaged crystal oscillator with a tri-stateable output. \n\nIt's actually a TCXO with quite good frequency stability. It drives one of the crystal input pins on the Si5351. The 'external reference select' strap on the RX888 board simply tri-states the TCXO oscillator and physically drives that 27 MHz tri-stated signal line from the external reference connector.  \n\nIt's the source of many of the hardware burn out problems the RX888 has - the pins on the Si5351 were intended to hook to a crystal and thus have minimal protection (a crystal needs a very low capacitance on those pins).  For that reason I selected a different family part for the quad channel unit.\n\n\n"
+		(exclude_from_sim no)
+		(at 145.288 13.462 0)
+		(size 120.396 34.798)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "9da84277-f7e2-4108-a942-e3499cbde30d")
+	)
+	(text_box "Comments: Tom [ Fri 27 Jun, 10:41 ]\n\n1. ADC Single sheet\n\nA. My original ADC schematic had straps to select HF low-pass-filtering vs VHF low-pass filtering.\nHF set the roll off about 60 MHz, while VHF set the roll off about 300 MHz. The latter would require\nresponse above the sampling rate (higher order Nyquist bands). It would allow, at reduced performance,\nsmapling VHF and perhaps UHF frequencies without down conversion. Phil Karn asked for this on one\nzoom call, I don;t know how usefully it really is given the added complexity.\n\nB. The two inductors in series are because there was a strap to short out the larger inductor when the\nfrequency response was set to the VHF mode. For HF-only use: remove the smaller inductors L2 and L3;\nC13 and C14 can be replaced by one capacitor of 100 pF.\n\nC. R6,R7,R8 are zero-ohm resistors. Somehow many signals on the right hand side of those got shorted to VCC\non the schematic. The purpose of the three resistors is to ground the DITH, PGA, and RAND lines of the 2208.\nThis disables those functions. On the off-hand that one or some of the three functions are needed, each\nzero-ohm resistor could be removed, and the line wired to +3.3 to enable.  If they are hard-grounded then\nthe circuit would not be able to be re-worked to enable the function(s).\n\n2. GPIO - I am confused why the GPIO pins are pulled down to ground through a series-RC ?\n\n3. The LTC2208 needs to have a completely separate 3.3V supply for the analog pins, it cannot be the\nsame rail that powers the digital portion. It should be sourced from a separate regulator chip that has a series\nferrite inductor on both the input and output of that separate regulator for the analog supply. You can use\nthe same kind of inductor FL1 as you are using with U6). The analog supply needs to be heavily bypassed\nto ground near the LTC2208 as shown on page 30 of the datasheet.\n \n4. Running the AGC amp on +3.3V is the simplest way to solve the I/O problem on the AGC clock, data, and\nlatch lines. The IP3 is degraded from about +35 dbm to about +24 dbm as a result. That would\naffect folks with a high rf environment.  I don't know - perhaps the RX888 already uses +3.3 on the\nAGC amp to reduce cost and complexity, in which case the performance would be the same.\n\n"
+		(exclude_from_sim no)
+		(at 13.716 72.39 0)
+		(size 129.794 85.598)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "b64479ed-3388-480c-9218-13e7083f43a8")
+	)
+	(text_box "Comments: Tom [Sat 21 Jun, 09:45]\n\n1. The +3.3V analog power to the LT2208 needs to be heavily LC filtered to keep noise out of the ADC.\nThe digital (DVDD) can be set to 3.3 or 1.8 volts - it sets the digital logic levels on that part.\nI set up the original schematic for 1.8v digital I/O, as that was compatible with the Xilinx FPGA and FX10.\nIt looks like you are intending digital I/O to be 3.3V. The FX3 may be strappable here.\n\n2. I'm not sure how the external reference clock is wired up to the Si5351 through the needed protective\ncircuitry.  The transformer in the timing circuit was intended for the external reference input rather\nthan coupling from the Si5351 to the differential clock driver.  There should be a simpler way to couple\nSi5351 to the driver with just RLC components.\n\n3. There appears to be an alternate circuit to drive the analog input on the ADC chip. Not sure\nwhat was intended.\n\n4. The I2C lines on the AD8370 AGC chip need to use the correct logic levels, the datasheet does not\nsay what the voltages are that I can find. It just says \"TTL levels\" and Not-to-exceed Vcc+0.5.\nThe diagram on page 14 figure 42 would imply that the logic levels need to be the same as VCC to the chip.\nThe AGC chip can run on 3.3V or 5V, the RF performance is better at +5V.  So the FX3 will need to either\nsupply a full 5V logic level swing, or use a tiny pull-up and an open-collector driver on the pin.\n\nOn the FX10 the I2C voltage I think is strappable 1.8V or 3.3V, don't know about the FX3. If driving the\npins directly from the FX3, need to make sure the FX3-GPIO pins to the AGC amp can handle the voltage range.\nAlternatively, can provide +3.3V power to the AGC amp, and set the GPIO pins for 3.3V operation on the FX3.\n\n-- Tom, N5EG"
+		(exclude_from_sim no)
+		(at 13.716 13.716 0)
+		(size 129.794 56.642)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "f80f1711-4917-4c50-83da-6bc955ad4d6e")
+	)
+	(text "See 'Changes' on ADC sheet."
+		(exclude_from_sim no)
+		(at 117.094 91.186 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 189 54 255 1)
+			)
+			(justify left)
+		)
+		(uuid "495d78db-bbea-4ee8-9356-a53d7ba970c1")
+	)
+	(text "I was expecting \nto use 3.3v logic \nwherever possible. \nHow big is the hit?"
+		(exclude_from_sim no)
+		(at 121.412 55.372 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 189 54 255 1)
+			)
+			(justify left)
+		)
+		(uuid "51fc9d74-5099-4b3d-8150-46c7506383a4")
+	)
+	(text "Track this down.\nDownsides?"
+		(exclude_from_sim no)
+		(at 121.666 25.4 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 255 100 117 1)
+			)
+			(justify left)
+		)
+		(uuid "672e4d5f-9309-4ff0-bdf1-05f749dd481a")
+	)
+	(text "[ Notes to self ]"
+		(exclude_from_sim no)
+		(at 121.92 67.056 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 255 97 92 1)
+			)
+			(justify left)
+		)
+		(uuid "8fa92327-84e8-4812-8466-e25b3cf11a9a")
+	)
+	(text "Sampling VERSION TABLE\n										\nAssembly Type	U1				T1		C5		C7, C28		R30 		R31,R32		L1		INPUT FREQUENCY			Bits	Msps\n\nDC854D-A	LTC2208CUP		MABAES0060	4.7pF	8.2pF		86.6		86.6		56nH	1MHz < Ain < 70MHz		16		130\nDC854D-B	LTC2208CUP		WBC1-1L		1.8pF	3.9pF		182			43.2		18nH	70MHz < Ain < 140MHz	16		130\nDC854D-C	LTC2208CUP-14	MABAES0060	4.7pF	8.2pF		86.6		86.6		56nH	1MHz < Ain < 70MHz		14		130\nDC854D-D	LTC2208CUP-14	WBC1-1L		1.8pF	3.9pF		182			43.2		18nH	70MHz < Ain < 140MHz	14		130\nDC854D-E	LTC2217CUP		MABAES0060	4.7pF	8.2pF		86.6		86.6		56nH	1MHz < Ain < 70MHz		16		105\nDC854D-F	LTC2217CUP		WBC1-1L		1.8pF	3.9pF		182			43.2		18nH	70MHz < Ain < 140MHz	16		105\nDC854D-G	LTC2217CUP		MABAES0060	4.7pF	8.2pF		86.6		86.6		56nH	1MHz < Ain < 70MHz		16		80\nDC854D-H	LTC2216CUP		WBC1-1L		1.8pF	3.9pF		182			43.2		18nH	70MHz < Ain < 140MHz	16		80\nDC854D-i	LTC2215CUP		MABAES0060	4.7pF	8.2pF		86.6		86.6		56nH	1MHz < Ain < 70MHz		16		65\nDC854D-J	LTC2215CUP		WBC1-1L		1.8pF	3.9pF		182			43.2		18nH	70MHz < Ain < 140MHz	16		65\nDC854D-P										\n\nMABAES0060 == (ETC1-1-13)"
+		(exclude_from_sim no)
+		(at 14.478 196.088 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(color 0 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "95ea91ef-45cd-44a0-81a1-04cc22ac769b")
+	)
+	(text "Oversight.  \nThis has been deleted."
+		(exclude_from_sim no)
+		(at 121.412 41.148 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 189 54 255 1)
+			)
+			(justify left)
+		)
+		(uuid "ac26e0ac-62f6-4b10-a8b2-66a74eac9d75")
+	)
+	(text "Added components\nfrom Paul Elliot's \nfix for RX-888. \nOK?"
+		(exclude_from_sim no)
+		(at 121.412 32.766 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 255 93 107 1)
+			)
+			(justify left)
+		)
+		(uuid "b5f9174e-541a-49ce-8fa2-f11446505759")
+	)
+	(text "See 'Explained' on ADC sheet."
+		(exclude_from_sim no)
+		(at 116.586 111.506 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 189 54 255 1)
+			)
+			(justify left)
+		)
+		(uuid "b7edde2a-4273-4f1a-9365-64ce1bcf8579")
+	)
+	(text "How 'heavily'?"
+		(exclude_from_sim no)
+		(at 121.412 20.066 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 189 54 255 1)
+			)
+			(justify left)
+		)
+		(uuid "b9611387-514a-4324-9a16-fce67b46a2bf")
+	)
+	(text "See 'Changes' on ADC sheet."
+		(exclude_from_sim no)
+		(at 117.094 99.314 0)
+		(effects
+			(font
+				(size 1.1 1.1)
+				(thickness 0.254)
+				(bold yes)
+				(color 189 54 255 1)
+			)
+			(justify left)
+		)
+		(uuid "fe78b4c3-b04e-48ff-93a5-2c82a6cc0c16")
+	)
+)

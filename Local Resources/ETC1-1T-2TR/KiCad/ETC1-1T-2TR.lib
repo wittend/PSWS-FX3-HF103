@@ -1,0 +1,26 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model ETC1-1T-2TR
+#/249846/236775/2.50/5/4/Transformer
+DEF ETC1-1T-2TR T 0 30 Y Y 1 F N
+F0 "T" 1750 300 50 H V L CNN
+F1 "ETC1-1T-2TR" 1750 200 50 H V L CNN
+F2 "E_SERIES_1" 1750 100 50 H I L CNN
+F3 "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/85d3f36e6ccd244b2f23e0daa3d02a86.pdf" 1750 0 50 H I L CNN
+F4 "Audio Transformers / Signal Transformers .1-200MHz IL 1.5dB Impedance Ratio 1:1" 1750 -100 50 H I L CNN "Description"
+F5 "" 1750 -200 50 H I L CNN "Height"
+F6 "937-ETC1-1T-2" 1750 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/MACOM/ETC1-1T-2TR?qs=Z9twEOuL%252B%2FJJqd2fxpSi6w%3D%3D" 1750 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "MACOM" 1750 -500 50 H I L CNN "Manufacturer_Name"
+F9 "ETC1-1T-2TR" 1750 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X SECONDARY 1 1900 0 200 L 50 50 0 0 P
+X SECONDARY_CT 2 1900 -100 200 L 50 50 0 0 P
+X SECONDARY_DOT 3 1900 -200 200 L 50 50 0 0 P
+X PRIMARY_DOT 4 0 -100 200 R 50 50 0 0 P
+X PRIMARY 5 0 0 200 R 50 50 0 0 P
+P 5 0 1 6 200 100 1700 100 1700 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library
